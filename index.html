@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.css" integrity="sha512-yexU9hwne3MaLL2PG+YJDhaySS9NWcj6z7MvUDSoMhwNghPgXgcvYgVhfj4FMYpPh1Of7bt8/RK5A0rQ9fPMOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Vimeo Example</title>
+  </head>
+  <body>
+    <h1>Vimeo</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+    <hr>
+    <div id="main">
+      <!-- <video id="player" class="player rounded-lg" playsinline controls crossorigin src="76979871" ></video> -->
+    </div>
+
+    <button onclick="vimeo()">VİMEO</button>
+
+    <!-- You can also require other files to run in this process -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.js" integrity="sha512-evjxmRXJDnWC62hPb1lsGZP6/TsBVR1hq2K873VPdlxItTB/WFpB4pavhqTwEjWpYfOA/b/9QYljHjrPO1fXwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
