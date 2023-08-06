@@ -1,2 +1,2 @@
 # Videlectron
-Video uses in electron with plyr.io
+Proof of Concept video uses in electron with plyr.io
