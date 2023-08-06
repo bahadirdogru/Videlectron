@@ -7,7 +7,8 @@
  */
 function vimeo() {
     console.log('vimeo');
-    createPlayer('main', 'vimeo', 'Vimeo', 'https://player.vimeo.com/video/76979871', 'https://i.vimeocdn.com/video/453879380_640.jpg')
+    desturctPlayer();
+    createPlayer('main')
     plyr = new Plyr('#player', {
         ratio: '16:9',
     });
@@ -18,21 +19,78 @@ function vimeo() {
     plyr.play();
 }
 
-function createPlayer(mainElementId, videoType, videoTitle, videoSrc, posterUrl) {
-    debugger;
+function youtube() {
+    console.log('youtube');
+    desturctPlayer();
+    createPlayer('main')
+    plyr = new Plyr('#player', {
+        ratio: '16:9',
+    });
+    window.plyr = plyr;
+    let type = 'youtube';
+    let src = '9u0EL_u4nvw';
+    setVideo(type, src, plyr);
+    plyr.play();
+}
+
+function cdn() {
+    console.log('cdn');
+    desturctPlayer();
+    createPlayer('main')
+    plyr = new Plyr('#player', {
+        ratio: '16:9',
+    });
+    window.plyr = plyr;
+    let type = 'url';
+    let src = 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4';
+    setVideo(type, src, plyr);
+    plyr.play();
+}
+
+function local() {
+    console.log('local');
+    desturctPlayer();
+    createPlayer('main')
+    plyr = new Plyr('#player', {
+        ratio: '16:9',
+    });
+    window.plyr = plyr;
+    let type = 'local';
+    let src = 'assets/video/Big_Buck_Bunny_1080_10s_30MB.mp4';
+    setVideo(type, src, plyr);
+    plyr.play();
+}
+
+function desturctPlayer() {
+    let mainElementId = 'main';
+    let mainElement = document.getElementById(mainElementId);
+    try {
+        mainElement.removeChild(document.querySelector('.plyr'));
+        if (window.plyr){
+            window.plyr.destroy()
+        };
+        if (plyr){
+             plyr.destroy()
+        };
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+function createPlayer(mainElementId) {
     const playerElement = document.createElement("video");
     playerElement.id = 'player';
     playerElement.className = 'player';
     playerElement.setAttributeNode(document.createAttribute('crossorigin'));
     playerElement.setAttributeNode(document.createAttribute('playsinline'));
     playerElement.setAttributeNode(document.createAttribute('controls'));
-    playerElement.setAttribute('src', videoSrc);
+    playerElement.setAttribute('src', '');
 
     document.getElementById(mainElementId).appendChild(playerElement);
 }
 
 function setVideo(videoType, videoSrc, plyr) {
-    debugger;
     let obj = null;
 
     switch (videoType) {
